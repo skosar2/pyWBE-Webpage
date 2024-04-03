@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+/* navigation bar */
+
+html,body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins',sans-serif;
+  color: #222;
+}
+
+.navbar-nav li{
+  padding-right:20px;
+}
+.nav-link{
+  font-size: 1.5rem !important;
+  color: #2b2924;
+}
+li.nav-item.active::marker{
+  color: white;
+}
+.navbar2 {
+  padding: 1.0rem;
+  background-color: #2b2924 !important;
+}
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")!important;
+  } 
+.nav-item{
+  padding: 10px;
+  font-size: 125%;
+}
+.nav-link2{
+  text-align: left !important;
+  color:#f2f2f2 !important;
+}
+
+.navbar2 {
+    padding: 5px 0; /* Reduces the top and bottom padding of the navbar */
+}
+
+.navbar2 .nav-link2 {
+    font-size: 15px; /* Optionally, reduce the font size for smaller navbar items */
+}
+
+.navbar-brand {
+    font-size: 20px; 
+}
+
+/* Ensure the toggler appears correctly with reduced padding */
+.navbar2 .navbar-toggler {
+    padding: .25rem .5rem;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Bootstrap primary color, change as needed */
+    border-color: #007bff; /* Bootstrap primary color, change as needed */
+}
+
+
+.navbar-logo {
+    max-height: 100px;
+}
+
+.navbar-text-button {
+    text-align: center;
+}
+
+.navbar-text-button .navbar-text {
+    display: block; /* Stack the text above the button on all views */
+    color: #000;
+    font-size: 20px;
+}
+
+.navbar-text-button .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+
+.custom-navbar {
+  position: relative; /* Needed for positioning the background image */
+  background-image: url('images/pywbe-banner2.png'); /* Make sure this path is correct */
+  background-position: center center; /* Centers the background image */
+  background-size: cover; /* Covers the whole area, might crop the image if aspect ratio differs */
+  background-repeat: no-repeat; /* Prevents image from repeating */
+  height: 250px; /* Desired fixed height of the banner */
+  min-height: 250px; /* Ensures the minimum height is also 200px */
+  width: 100%; /* Ensures the navbar spans the width of the viewport */
+  border-bottom: 2px solid #1493dc; /* This will add a light grey border */
+
+}
+
+
+/* No longer need .navbar-banner if using background-image */
+
+
+.navbar-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(100% - 6rem); /* Adjust the image height to account for padding */
+  width: auto; /* Keeps the image aspect ratio */
+  max-width: 100%; /* Ensures the image doesn't exceed the navbar's width */
+  object-fit: contain; /* Ensures the image is not cropped */
+  z-index: -1; /* Sends the image to the back */
+}
+
+/* Footer */
+
+footer{
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+    padding-top: 2rem;
+  }
+  hr.light{
+    border-top: 1px solid #d5d5d5;
+    width:75%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+  }
+  footer a{
+    color: #d5d5d5;
+  }
+
+  
+/* Logo */
+
+.navbar-logo {
+    max-height: 50px;
+    width: auto; /* maintain aspect ratio */
+}
+
+/* Image */
+
+.image-placeholder:hover{
+    opacity: 0.8;
+}
+
+
+html, body {
+        height: 100%; /* Make sure the page fills the whole window */
+        margin: 0; /* Override default margin */
+}
+#content {
+        flex: 1 0 auto; /* Stretch content to fill the space */
+}
+#footer {
+        flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+/* Feature box */
+
+.feature-box {
+        padding: 20px;
+        border: 1px solid #ddd; /* Light grey border */
+       /* box-shadow: 0 2px 4px rgba(0,0,0,.1); /* Subtle shadow */
+       box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        margin-bottom: 20px; /* Spacing between boxes */
+        cursor: pointer;
+        background-color: #fff; /* White background for feature boxes */
+
+}
+
+.feature-box h6 {
+  font-weight: bold; /* Makes the h6 heading bold */
+}
+
+
+.feature-box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+    
+
+/* Image place holder */
+
+.image-placeholder {
+        width: 100%;
+        height: 200px; 
+        border: 1px solid #ddd; 
+        background-color: #f3f3f3; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #666; 
+}
+
+.image-placeholder img {
+      width: 100%; /* Full width of the container */
+      height: 100%; /* Full height of the container */
+      object-fit: cover; /* Cover the container, cropping where necessary */
+}
+
+.description-section {
+  padding: 20px;
+  background: linear-gradient(to right, #ffffff, #f1f1f1); /* Subtle gradient background */
+  border-radius: 10px; /* Slightly more rounded corners */
+  margin-bottom: 30px; /* Space before the next section starts */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1); /* More sophisticated shadow */
+  border-left: 4px solid #007bff; /* Solid left border for a pop of color */
+}
+
+.description-section h2 {
+  color: #002f6c; /* Dark blue color for a more professional look */
+  font-size: 2rem; /* Larger font size for heading */
+  margin-bottom: 20px; /* Increased space between the heading and paragraph */
+  font-weight: 500; /* Medium font weight for the heading */
+}
+
+.description-section p {
+  color: #333; /* Slightly darker color for better readability */
+  font-size: 1.1rem; /* Slightly larger font size for the paragraph */
+  line-height: 1.8; /* Increased line height for better readability */
+  font-weight: 400; /* Regular font weight for the paragraph */
+}
+
+
+/* ABOUT...... */
+
+.welcome{
+    width:75%;
+    margin:0 auto;
+    padding-top: 2rem;
+}
+  .welcome hr{
+    border-top: 2px solid #b4b4b4;
+    width:95%;
+    margin-top: .3rem;
+    margin-bottom: 1rem;
+    font-family: Raleway;
+}
+
+.authors-heading {
+    color: #000;
+    background-color: #e9e9e9;
+    border: 1px solid #ccc;
+}
+
+.lead {
+    font-size: 1rem; /* Example size, adjust as needed */
+    margin-bottom: 1rem; /* Space below the paragraph */
+    color: #555; /* A darker shade for better readability */
+}
+
+/* .card-img-top {
+    width: 100%;
+    border-radius: 100%;
+} */
+
+.card-img-top {
+    width: 100%; /* Full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 0; /* Remove any border-radius to make corners sharp */
+}
+
+
+.card-link {
+    color: #007bff;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
