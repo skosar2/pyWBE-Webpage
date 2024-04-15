@@ -104,19 +104,19 @@
     <h4 class="examples-heading">pyWBE Tutorial</h4>
     <p class="examples-description">This guide can help you start working with pyWBE.</p>
         <h4 class="section-subheading bg-light p-2 mt-4 border-left border-primary">Examples for <code class="docutils literal notranslate"><span class="pre">pyWBE.preliminary_functions</span></code></h4>
-        <p class="installation-description">Let us take an example <a href="https://drive.google.com/file/d/1_YyaQ65BT73uBaSK0o4U3spcVqk6R3xB/view?usp=drive_link" target="_blank" class="institution-link">dataset</a> that has COVID-19 protein levels measured at a Wastewater Treatment Plant (hypothetical). The samples were collected each day starting from November 24, 2020 till February 14, 2021. This dataset gives us an idea of how the protein levels measured at the Wastewater treatment plant have changed over time. Thus, in order to gain an in-depth understanding of the data, we can plot the time-series, obtain the trend in the data, extract its periodicity, and look at how the values normalized by population look like. </p>
+        <p class="installation-description">Let us take an example <a href="https://drive.google.com/file/d/1itGFCNcH5SpMQXXznmlMDBZPbzWpbzzY/view?usp=sharing" target="_blank" class="institution-link">dataset</a> that has COVID-19 protein levels measured at a Wastewater Treatment Plant (hypothetical). The samples were collected each day starting from November 24, 2020 till February 14, 2021, from an area with a mean population of 284. This dataset gives us an idea of how the protein levels measured at the Wastewater treatment plant have changed over time. Thus, in order to gain an in-depth understanding of the data, we can plot the time-series, obtain the trend in the data, extract its periodicity, and look at how the values normalized by population look like. </p>
         
         <!-- Example steps here -->
         <h5 class="example-step-heading">1) Data Preparation:</h5>
         <p class="installation-description">First, let us read the data file into a Pandas DataFrame and check the features present in it:</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>import pandas as pd
->>> df = pd.read_csv("path_to_dataset_file")
->>> print(df.columns)</code></pre>
+df = pd.read_csv("path_to_dataset_file")
+print(df.columns)</code></pre>
         </div>
 
         <div class="code-snippet bg-light p-3 border">
-            <pre><code>[‘COVID-19 N1 Concentration (gc/L)’, ‘Total Population’]</code></pre>
+            <pre><code>>>> [‘COVID-19 N1 Concentration (gc/L)’, ‘Total Population’]</code></pre>
         </div>
         
         <p class="installation-description">Next, since the data has the dates as its indices, we can convert it into the datetime format:</p>
@@ -130,7 +130,7 @@
         <p class="installation-description">In order to get a primary understanding of how the concentration levels...</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>from pyWBE.preliminary_functions import plot_time_series
->>> plot_time_series(df['COVID-19 N1 Concentration (gc/L)'], df.index, "time_series_plot.png")</code></pre>
+plot_time_series(df['COVID-19 N1 Concentration (gc/L)'], df.index, "time_series_plot.png")</code></pre>
         </div>
         <p class="installation-description">The result plot is shown below:</p>
         <div class="result-plot">
@@ -141,7 +141,7 @@
         <p class="installation-description">In order to check when the relative change in the concentration levels were at their peak, we can plot the percentage change in the concentration levels calculated on weekly basis. We can do this using the <code class="docutils literal notranslate"><span class="pre">calculate_weekly_concentration_perc_change</span></code> function.</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>from pyWBE.preliminary_functions import 
->>> calculate_weekly_concentration_perc_change</code></pre>
+calculate_weekly_concentration_perc_change</code></pre>
         </div>
 
         <div class="code-snippet bg-light p-3 border">
@@ -165,12 +165,12 @@
         <p class="installation-description">Getting an overview about the trend in the concentration values (whether it is increasing, decreasing or constant) will help us understand whether the COVID-19 concentration levels have increased or not over time. To get this we use the <code class="docutils literal notranslate"><span class="pre">analyze_trends</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>from pyWBE.preliminary_functions import analyze_trends
->>> trend_vals = analyze_trends(df[‘COVID-19 N1 Concentration (gc/L)’])</code></pre>
+trend_vals = analyze_trends(df[‘COVID-19 N1 Concentration (gc/L)’])</code></pre>
         </div>
         <p class="installation-description">The <code class="docutils literal notranslate"><span class="pre">plot_trends</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
         <pre><code>from pyWBE.reporting import plot_trends
->>> plot_trends(df[‘COVID-19 N1 Concentration (gc/L)’], “trends.png”)</code></pre>
+plot_trends(df[‘COVID-19 N1 Concentration (gc/L)’], “trends.png”)</code></pre>
         </div>
         <p class="installation-description">The result plot is shown below:</p>
 
@@ -182,12 +182,12 @@
         <p class="installation-description">Since the COVID-19 concentration levels may exhibit complex behavior over time, it is helpful to get boundaries where the behavior changes significantly. To get a list of these change points in the data, we use the <code class="docutils literal notranslate"><span class="pre">change_point_detection</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>from pyWBE.preliminary_functions import change_point_detection
->>> change_points = change_point_detection(df[‘COVID-19 N1 Concentration (gc/L)’])</code></pre>
+change_points = change_point_detection(df[‘COVID-19 N1 Concentration (gc/L)’])</code></pre>
         </div>
         <p class="installation-description">Otherwise we can directly plot the change points using, the <code class="docutils literal notranslate"><span class="pre">plot_change_pt_detect</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
         <pre><code>from pyWBE.reporting import plot_change_pt_detect
->>> plot_change_pt_detect(df[‘COVID-19 N1 Concentration (gc/L)], “change_pts.png”)</code></pre>
+plot_change_pt_detect(df[‘COVID-19 N1 Concentration (gc/L)], “change_pts.png”)</code></pre>
         </div>
         <p class="installation-description">The generated plot is shown below:</p>
 
@@ -199,12 +199,12 @@
         <p class="installation-description">Since the COVID-19 concentration levels obtained by a wastewater treatment plant can depend on the population residing near the plant, plotting the population normalized values of the concentration levels may give a better indication of actual prevalence of COVID-19. We can obtain the mean normalized values of the concentration levels based on the population feature using the <code class="docutils literal notranslate"><span class="pre">normalize_viral_load</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>from pyWBE.preliminary_functions import normalize_viral_load
->>> normalized_values = normalize_viral_load(df, ‘COVID-19 N1 Concentration (gc/L)’, ‘Total Population’)</code></pre>
+normalized_values = normalize_viral_load(df, ‘COVID-19 N1 Concentration (gc/L)’, ‘Total Population’)</code></pre>
         </div>
         <p class="installation-description">Or directly plot it using the <code class="docutils literal notranslate"><span class="pre">plot_normalize</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
         <pre><code>from pyWBE.reporting import plot_normalize
->>> plot_normalize(df, “normalized.png”, ‘COVID-19 N1 Concentration (gc/L)’, ‘Total Population’)</code></pre>
+plot_normalize(df, “normalized.png”, ‘COVID-19 N1 Concentration (gc/L)’, ‘Total Population’)</code></pre>
         </div>
         <p class="installation-description">The generated plot is shown below:</p>
 
@@ -216,14 +216,14 @@
         <p class="installation-description">Given the COVID-19 concentration level, it can be helpful to forecast how it look like in the future. In order to forecast what the value at the next instance will be, we can use the <code class="docutils literal notranslate"><span class="pre">forecast_single_instance</span></code> function. Since the window used to obtain the forecast has to be atleast 1 week, let us use the last 28 days:</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>from pyWBE.preliminary_functions import forecast_single_instance
->>> window = df.index[-28:]
->>> forecast_vals = forecast_single_instance(df[‘COVID-19 N1 Concentration (gc/L)’], window)</code></pre>
+window = df.index[-28:]
+forecast_vals = forecast_single_instance(df[‘COVID-19 N1 Concentration (gc/L)’], window)</code></pre>
         </div>
         <p class="installation-description"><code class="docutils literal notranslate"><span class="pre">forecast_vals</span></code> is the original time-series with the forecasted value for the next time-step appended at the end.</p>
         <p class="installation-description">To directly obtain a plot of the forecasted value, we can use the <code class="docutils literal notranslate"><span class="pre">plot_forecast</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
         <pre><code>from pyWBE.reporting import plot_forecast
->>> plot_forecast(df[‘COVID-19 N1 Concentration (gc/L)’], “forecast.png”, window)</code></pre>
+plot_forecast(df[‘COVID-19 N1 Concentration (gc/L)’], “forecast.png”, window)</code></pre>
         </div>
         <p class="installation-description">The generated plot is shown below:</p>
 
@@ -235,12 +235,12 @@
         <p class="installation-description">To obtain the trend, seasonal, and residual components of the time-series data, we can use the <code class="docutils literal notranslate"><span class="pre">detect_seasonality</span></code> function. This function requires the data to have a constant periodicity. The trend component captures the long-term behavior or direction of the time series, ignoring short-term fluctuations and seasonal variations. The seasonal component represents the recurring patterns or cycles within the time series that occur at fixed intervals; whereas the residual component represents the random fluctuations or variability in the time series that cannot be explained by the seasonal and trend components. Thus, getting these components of the COVID-19 concentration levels will help us obtain the months when COVID-19 seasonally appears and disappears, whether it is increasing or decreasing over time, and separate the random fluctuations from it, which may be analyzed further to identify their cause. We can use the <code class="docutils literal notranslate"><span class="pre">detect_seasonality</span></code> function.</p>
         <div class="code-snippet bg-light p-3 border">
             <pre><code>from pyWBE.preliminary_functions import detect_seasonality
->>> decompose_result = detect_seasonality(df[‘COVID-19 N1 Concentration (gc/L)’])</code></pre>
+decompose_result = detect_seasonality(df[‘COVID-19 N1 Concentration (gc/L)’])</code></pre>
         </div>
         <p class="installation-description">To directly get the plot, we can use the  <code class="docutils literal notranslate"><span class="pre">plot_seasonality</span></code> function:</p>
         <div class="code-snippet bg-light p-3 border">
         <pre><code>from pyWBE.reporting import plot_seasonality
->>> plot_seasonality(df[‘COVID-19 N1 Concentration (gc/L)’], “seasonality.png”)</code></pre>
+plot_seasonality(df[‘COVID-19 N1 Concentration (gc/L)’], “seasonality.png”)</code></pre>
         </div>
         <p class="installation-description">The generated plot is shown below:</p>
 
@@ -249,12 +249,12 @@
         </div>
 
         <h5 class="example-step-heading">9) Lead-Lag Correlation Analysis</h5>
-        <p class="installation-description">Now, suppose we want to compare this COVID-19 time-series with another COVID-19 time-series obtained at a different Wastewater treatment plant. Assuming that the start and end date as well as the periodicity is the same for both the series, we can use the <code class="docutils literal notranslate"><span class="pre">get_lead_lag_correlations</span></code> function to compare the two and check whether they have any lead or lag correlations. We will use this <a href="https://drive.google.com/file/d/1QIj0RPuHsUIoNSIj8mmvBJdBzBovLXg8/view?usp=sharing" target="_blank" class="institution-link">dataset</a> for comparison.</p>
+        <p class="installation-description">Now, suppose we want to compare this COVID-19 time-series with another COVID-19 time-series obtained at a different Wastewater treatment plant. Assuming that the start and end date as well as the periodicity is the same for both the series, we can use the <code class="docutils literal notranslate"><span class="pre">get_lead_lag_correlations</span></code> function to compare the two and check whether they have any lead or lag correlations. We will use this <a href="https://drive.google.com/file/d/1LtlGDOxLO2NFdNRT0kWkTDttAxz45b5D/view?usp=sharing" target="_blank" class="institution-link">dataset</a> for comparison.</p>
         <div class="code-snippet bg-light p-3 border">
-            <pre><code>>>> df_2 = pd.read_csv(“path_to_the_second_dataset”)
->>> df_2.index = pd.to_datetime(df_2.index)
->>> from pyWBE.preliminary_functions import get_lead_lag_correlations
->>> lead, lag = get_lead_lag_correlations(df[‘COVID-19 N1 Concentration (gc/L)’], df_2[‘N1_Original’], time_instances=28, plt_save_pth= “time_series_compare.png”)</code></pre>
+            <pre><code>df_2 = pd.read_csv(“path_to_the_second_dataset”)
+df_2.index = pd.to_datetime(df_2.index)
+from pyWBE.preliminary_functions import get_lead_lag_correlations
+lead, lag = get_lead_lag_correlations(df[‘COVID-19 N1 Concentration (gc/L)’], df_2[‘N1_Original’], time_instances=28, plt_save_pth= “time_series_compare.png”)</code></pre>
         </div>
         <p class="installation-description">The generated result will be:</p>
         <div class="result-plot">
@@ -263,16 +263,16 @@
 
         <h4 class="section-subheading bg-light p-2 mt-4 border-left border-primary">Examples for <code class="docutils literal notranslate"><span class="pre">pyWBE.reporting</span></code></h4>
         <h5 class="example-step-heading">Generating COVID-19 Report</h5>
-        <p class="installation-description">We can generate DOCX reports directly from datasets. We will use a primary <a href="https://drive.google.com/file/d/1_YyaQ65BT73uBaSK0o4U3spcVqk6R3xB/view?usp=drive_link" target="_blank" class="institution-link">dataset</a> and secondary <a href="https://drive.google.com/file/d/1QIj0RPuHsUIoNSIj8mmvBJdBzBovLXg8/view?usp=sharing" target="_blank" class="institution-link">dataset</a> to generate a Word document report. We can use the <code class="docutils literal notranslate"><span class="pre">generate_report_from_data</span></code> function for this purpose. Since this function use pypandoc internally, make sure you have <a href="https://pandoc.org/installing.html" target="_blank" class="institution-link">Pandoc</a> installed on your system.</p>
+        <p class="installation-description">We can generate DOCX reports directly from datasets. We will use a primary <a href="https://drive.google.com/file/d/1itGFCNcH5SpMQXXznmlMDBZPbzWpbzzY/view?usp=sharing" target="_blank" class="institution-link">dataset</a> and secondary <a href="https://drive.google.com/file/d/1LtlGDOxLO2NFdNRT0kWkTDttAxz45b5D/view?usp=sharing" target="_blank" class="institution-link">dataset</a> to generate a Word document report. We can use the <code class="docutils literal notranslate"><span class="pre">generate_report_from_data</span></code> function for this purpose. Since this function use pypandoc internally, make sure you have <a href="https://pandoc.org/installing.html" target="_blank" class="institution-link">Pandoc</a> installed on your system.</p>
         <div class="code-snippet bg-light p-3 border">
-            <pre><code>>>> import pandas as pd
->>> df = pd.read_csv(“path_to_first dataset_file”)
->>> df.index = pd.to_datetime(df.index)
->>> df_2 = pd.read_csv(“path_to_second dataset_file”)
->>> df_2.index = pd.to_datetime(df_2.index)
->>> html_content = generate_report_from_data(df, df_2[' COVID-19 N1 Concentration (gc/L) '], ‘COVID-19 N1 Concentration (gc/L)', 'Total Population', df.index[-28:], 28, 3, "report.docx", "time_series.png", “trend.png", "conc_change.png", “change_points.png", "seasonality.png", "normalized_plot.png", "forecast.png", "comparision.png")</code></pre>
+            <pre><code>import pandas as pd
+df = pd.read_csv(“path_to_first dataset_file”)
+df.index = pd.to_datetime(df.index)
+df_2 = pd.read_csv(“path_to_second dataset_file”)
+df_2.index = pd.to_datetime(df_2.index)
+html_content = generate_report_from_data(df, df_2[' COVID-19 N1 Concentration (gc/L) '], ‘COVID-19 N1 Concentration (gc/L)', 'Total Population', df.index[-28:], 28, 3, "report.docx", "time_series.png", “trend.png", "conc_change.png", “change_points.png", "seasonality.png", "normalized_plot.png", "forecast.png", "comparision.png")</code></pre>
         </div>
-        <p class="installation-description">This function creates and saves the report at ‘report.docx’ along with each of the plots individually. It also returns the HTML format of the report that can be further used by the user. The generated <a href="https://docs.google.com/document/d/19kYTt-TUFujjjjWT9ApK-iB26gv-X_UM/edit#bookmark=id.gjdgxs" target="_blank" class="institution-link">REPORT</a> can be accessed here.</p>
+        <p class="installation-description">This function creates and saves the report at ‘report.docx’ along with each of the plots individually. It also returns the HTML format of the report that can be further used by the user. The generated <a href="https://docs.google.com/document/d/1Vh1QIkzLEblyplEwYeUHKvsLstGvdMrs/edit#bookmark=id.gjdgxs" target="_blank" class="institution-link">REPORT</a> can be accessed here.</p>
 
 </div>
 </body>

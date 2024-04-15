@@ -1,8 +1,6 @@
 /* Import Google font for Poppins, if it's not already imported in your about.css */
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
-/* You can include the common styles from your about.css, such as .navbar2, .navbar-brand, etc., here as well. */
-
 /* navigation bar */
 
 html,body {
@@ -203,7 +201,6 @@ code, kbd, pre, samp {
     margin-bottom: 0;
 }
 
-/* Adjust the margin for the final call-to-action section
 
 /* New styles for the examples section */
 
